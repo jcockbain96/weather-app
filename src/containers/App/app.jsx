@@ -20,26 +20,14 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setLoading(true);
-
-  //     const result = await axios.get(
-  //       `https://api.openweathermap.org/data/2.5/weather?q=${searchBarInput}&appid=${apiKey}&units=metric`,
-  //     );
-  //     setWeatherDetails({
-  //       temperature: result.data.main.temp,
-  //       description: result.data.weather[0].main,
-  //     });
-  //     setLoading(false);
-  //   };
-  //   fetchData();
-  // }, [searchBarInput]);
-
   const tryAgainHandler = () => {
     setSearchInput('');
     setWeatherDetails({});
     setError(false);
+  };
+
+  const searchBarHandler = (e) => {
+    setSearchInput(e.target.value);
   };
 
   const setWeather = () => {
@@ -61,10 +49,6 @@ const App = () => {
         setError(true);
         setLoading(false);
       });
-  };
-
-  const searchBarHandler = (e) => {
-    setSearchInput(e.target.value);
   };
 
   let cardContent = <Preview />;
