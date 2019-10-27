@@ -1,6 +1,6 @@
 import React from 'react';
 
-import classes from './temperature.module.css';
+import classes from './Temperature.module.css';
 
 const Temperature = ({ degrees }) => (
   <div className={classes.TemperatureWrapper}>
