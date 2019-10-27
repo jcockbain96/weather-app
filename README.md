@@ -1,12 +1,14 @@
-# react-boilerplate
+# react-weather-app
 
-This is my personal React boilerplate
+This is a simple react app to provide the current weather in a user-specified location.
+
+It uses the [OpenWeather API](https://openweathermap.org/api).
 
 ## Instructions
 
 ### Develop Locally
 
-```
+```bash
 npm install
 npm start
 ```
@@ -17,7 +19,7 @@ The page will automatically reload upon any changes.
 
 ### Production Build
 
-```
+```bash
 npm run build
 ```
 

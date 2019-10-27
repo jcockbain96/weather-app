@@ -85,9 +85,6 @@ const App = () => {
           onChangeHandler={searchBarHandler}
           onClickHandler={setWeather}
         />
-        {/* <Card>
-          <WeatherDetails data={weatherDetails} />
-        </Card> */}
         <Card>{cardContent}</Card>
       </main>
     </div>
