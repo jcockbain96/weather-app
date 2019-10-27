@@ -5,7 +5,9 @@ import InputField from '../../elements/InputField/InputField';
 import Button from '../../elements/Button/Button';
 
 const searchBar = (props) => {
-  const { value, onChangeHandler, onClickHandler } = props;
+  const {
+    value, onChangeHandler, onClickHandler, error,
+  } = props;
   return (
     <div className={classes.SearchBarWrapper}>
       <InputField
@@ -15,6 +17,7 @@ const searchBar = (props) => {
         placeholder="Enter a city"
         value={value}
         handleChange={onChangeHandler}
+        error={error}
       />
       <Button name="searchSubmit" type="submit" position="onForm" clicked={onClickHandler}>
         Set

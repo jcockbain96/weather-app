@@ -10,9 +10,10 @@ import SearchBar from '../../components/SearchBar';
 import Preview from '../../components/Preview';
 import ErrorNotice from '../../components/ErrorNotice';
 
-import classes from './app.module.css';
+import classes from './App.module.css';
+import assetMapping from '../../assets/assetMapping.json';
 
-const apiKey = process.env.API_KEY;
+import { openWeatherKey } from '../../config';
 
 const App = () => {
   const [searchBarInput, setSearchInput] = useState('');
@@ -34,7 +35,7 @@ const App = () => {
     setLoading(true);
     axios
       .get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${searchBarInput}&appid=${apiKey}&units=metric`,
+        `https://api.openweathermap.org/data/2.5/weather?q=${searchBarInput}&appid=${openWeatherKey}&units=metric`,
       )
       .then((response) => {
         const newWeatherDetails = {
@@ -62,12 +63,20 @@ const App = () => {
 
   return (
     <div className={classes.appWrapper}>
-      <Header />
+      <Header
+        color={
+          assetMapping.colors[
+            // Set header color based on weather condition; if error, set color to red
+            error ? 'error' : weatherDetails.description
+          ]
+        }
+      />
       <main className={classes.appMain}>
         <SearchBar
           value={searchBarInput}
           onChangeHandler={searchBarHandler}
           onClickHandler={setWeather}
+          error={error}
         />
         <Card>{cardContent}</Card>
       </main>
