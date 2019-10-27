@@ -2,11 +2,9 @@ import React from 'react';
 
 import classes from './Button.module.css';
 
-const button = (props) => {
-  const {
-    position, type, name, clicked, children,
-  } = props;
-
+const button = ({
+  position, type, name, clicked, children,
+}) => {
   const buttonClasses = [
     classes.ButtonWrapper,
     position === 'onForm' ? classes.FormButtonWrapper : null,
